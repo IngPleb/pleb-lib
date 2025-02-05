@@ -57,7 +57,12 @@ local modules = {
 for _, module in ipairs(modules) do
     local chunk = LoadResourceFile("pleb-lib", "modules/" .. module .. ".lua")
     if chunk then
-        load(chunk)()
+        local func = load(chunk, module, "t", _G)
+        if func then
+            func()
+        else
+            error("Failed to load module " .. module)
+        end
     else
         error("Failed to load module " .. module)
     end
