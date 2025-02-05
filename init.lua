@@ -14,7 +14,7 @@ if plib and plib.name == CurrentResourceName then
     error('Pleb-lib is already loaded! Remove any duplicate entries in the fxmanifest.lua', 2)
 end
 
-if GetResourceState(CurrentResourceName) ~= 'started' then
+if GetResourceState("pleb-lib") ~= 'started' then
     error('^1Pleb-lib must be started before this resource.^0', 0)
 end
 
